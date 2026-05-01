@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lab4pod
+spec:
+  containers:
+    - name: lab4-container
+      image: nginx
+      volumeMounts:
+      - mountPath: "/usr/share/nginx/html"
+        name: lab4vol
+  volumes:
+    - name: lab4vol
+      persistentVolumeClaim:
+        claimName: lab4pvc
